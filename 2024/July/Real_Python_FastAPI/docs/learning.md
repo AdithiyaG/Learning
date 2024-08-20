@@ -1,5 +1,5 @@
 # Intro
-**FastAPI** is the framework you’ll use to build your API, and **Uvicorn** is the server that will use the API you build to serve 
+**FastAPI** is the framework you’ll use to build your API, and **Uvicorn** is the server that will use the API you build to serve \
 **FastAPI** is built on top of the OpenAPI standard
 # Interactive Documentaion
 
@@ -9,7 +9,7 @@
     [http://127.0.0.1:8000/redoc](http://127.0.0.1:8000/redoc)
 
 # First Steps
-[first.py](../first.py) wont return anything when you call directly using py. Thats we need server program uvicorn. \
+[first.py](../first.py) wont return anything when you call directly using py.  We need server program uvicorn. \
 Run with following cmd
 
 ```console
@@ -32,17 +32,20 @@ then returns response with JSON as
 
 1. **FastAPI()** is Python Class provides all functionality to API
 2. **app** is instance of FastAPI class
-3. **@app.get(/)** is decorator tells FastAPI function below decorator is responsible for handling request coming from corresponding path ie., async def root will be called by FastAPI whenever  GET request comes from path "/" **[Path operation decorator]**
-4. async def root() is called **Path operation function**
-5. Following HTTP requests can be sent 
-    * @app.post()
-    * @app.put()
-    * @app.delete()
+3. **@app.get(/)** is **[Path operation decorator]** decorators tells FastAPI  below function is responsible for handling request coming from corresponding path("\")
+   In this case root() will be called by FastAPI whenever  GET request comes to path "/" .
+5.  root() is know as **Path operation function**
+6. Following HTTP requests can be sent
+    * @app.post GET : to read data
+    * @app.post() POST: to create data.
+    * @app.put() PUT: to update data.
+    * @app.delete() DELETE: to delete data.
     * @app.options()
     * @app.head()
     * @app.patch()
     * @app.trace()
-6. Path operation function can return 
+      
+7. Path operation function can return 
     * dict
     * list
     * singular values like string,int,etc
@@ -57,7 +60,7 @@ then returns response with JSON as
 ## Path Parameteres with Type Hints
 1. You can declare function with hints as **get_item(item_id:int)** will be used for IDE,error checks,completion
 ### Data Converstion
-With Type Hints FastAPI will automatically parse the path parameter to int.
+With Type Hints FastAPI will automatically parse the path parameter to int(In this case).
 so for path **item/3** ,you will get response
 ```JSON
 {"item":3}
